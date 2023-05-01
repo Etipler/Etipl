@@ -753,8 +753,6 @@ flex-grow: 0;
 .img_cart{
     width: 380px;
 height: 245px;
-
-background: url(cupcake_09.jpg);
 border-radius: 10px 10px 0px 0px;
 
 /* Inside auto layout */
