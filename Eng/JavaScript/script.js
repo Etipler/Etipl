@@ -285,7 +285,7 @@ entry.forEach(change =>{
             let elements1 = document.querySelectorAll('.three_cards-first');
             let elements2 = document.querySelectorAll('.three_cards-second');
             let elements3 = document.querySelectorAll('.three_cards-third');
-            let reviews = document.querySelectorAll('.block_fifth, .block_fifth1')
+            // let reviews = document.querySelectorAll('.block_fifth, .block_fifth1')
             let text = document.querySelectorAll('.text_fifth')
             let galleryfirst = document.querySelectorAll('.gallery_first')
             let gallerysecond = document.querySelectorAll('.gallery_second')
@@ -305,9 +305,9 @@ entry.forEach(change =>{
             for(let elm3 of elements3){
                 observer.observe(elm3)
             }
-            for(let rev of reviews){
-                observer.observe(rev)
-            }
+            // for(let rev of reviews){
+            //     observer.observe(rev)
+            // }
             for(let tex of text){
                 observer.observe(tex)
             }
@@ -328,10 +328,21 @@ entry.forEach(change =>{
             }
 
 
-    // const switchbtn = document.querySelector('.switch_left');
-    // const switch_right = document.querySelector('.block_fifth');
-    // const switch_left = document.querySelector('.blockfifth1');
-    // switchbtn.addEventListener('click', ()=> {
-    //     switch_right.classList.add('switch-popup');
-    //     switch_left.classList.add('switch-popup');
-    //     });
+    const switchbtn = document.querySelector('.switch_left');
+    const switch_right = document.querySelector('.block_fifth');
+    const switch_left = document.querySelector('.block_fifth1');
+    const switchbtnright = document.querySelector('.switch_right')
+    switchbtn.addEventListener('click', ()=> {
+        switch_left.classList.add('slide_popup');
+        switch_right.classList.add('slide_popup');
+        switch_left.classList.remove('slide_popup_right');
+        switch_right.classList.remove('slide_popup_right');
+        return;
+        });
+    switchbtnright.addEventListener('click', ()=>{
+        switch_left.classList.add('slide_popup_right');
+        switch_right.classList.add('slide_popup_right');
+        switch_left.classList.remove('slide_popup');
+        switch_right.classList.remove('slide_popup');
+        return;
+    });
