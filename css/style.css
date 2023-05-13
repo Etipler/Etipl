@@ -39,15 +39,20 @@ animation-duration: 3s;
     top: 16%;
     left: 10%;
 } 
+#main{
+transform: scale(1);
+}
+#main.active-popup-main{
+transform: scale(0);
+}
 #error-message{
     width: 700px;
     height: 100px;
-    background: transparent;
+    background: black;
     position: absolute;
     top: 200px;
-    left: 34%;
+    left: 1%;
     border: 1px solid;
-    backdrop-filter: blur(50px);
     border-radius: 20px;
 }
 .error{
