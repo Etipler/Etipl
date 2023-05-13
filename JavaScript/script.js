@@ -348,8 +348,9 @@ entry.forEach(change =>{
     });
 
 
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
+  
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
         // Отображаем элемент с сообщением об ошибке
         var errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = 'block';
+        errorMessage.style.transform = 'scale(1)';
       }
