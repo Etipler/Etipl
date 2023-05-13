@@ -39,6 +39,22 @@ animation-duration: 3s;
     top: 16%;
     left: 10%;
 } 
+#error-message{
+    width: 700px;
+    height: 100px;
+    background: transparent;
+    position: absolute;
+    top: 200px;
+    left: 34%;
+    border: 1px solid;
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
+}
+.error{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
                                         /*LOGIN*/
 .Login{
     width: 140px;
