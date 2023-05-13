@@ -349,8 +349,13 @@ entry.forEach(change =>{
 
 
   
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
         // Отображаем элемент с сообщением об ошибке
         var errorMessage = document.getElementById('error-message');
+        var main = document.getElementById('main');
         errorMessage.style.transform = 'scale(1)';
+        window.onload('', ()=> {
+            main.classList.add('active-popup-main');
+            });
+
       }
