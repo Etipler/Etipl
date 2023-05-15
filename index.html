@@ -76,21 +76,21 @@
             <span class="icon">
                 <ion-icon name = "mail"></ion-icon>
             </span>
-            <input type="email" required>
+            <input type="email" required class = "email">
             <label for="" class="email" style="left:30px">Email</label>
         </div>
         <div class="input-box">
             <span class="icon">
                 <ion-icon name = "lock-closed"></ion-icon>
             </span>
-            <input  type="password" required>
+            <input  type="password" required class = "password_input">
             <label  class="password" for="" style="left:39px">Password</label>
         </div>
         <div class="remember-forgot">
-            <label><input type="checkbox">Remember me</label>
+            <label><input type="checkbox" class = "checkbox">Remember me</label>
             <a href="#" style="margin-left: 70px;">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn" style="
+        <button type="submit" id = "btn" style="
         margin-top: 30px;">Login</button>
         <div class="login-regiter">
             <p>Don't have an account?<a href="#" class="register_link">Register</a></p>
@@ -471,6 +471,36 @@
             console.log('Номер Телефону:' + mask.masked.unmaskedValue);
             
         }
+        
+        const Login = document.querySelector('.email');
+        const Password = document.querySelector('.password_input')
+        const btn_login = document.querySelector('#btn');
+        const checkbox = document.querySelector('.checkbox')
+        const mask_password = new IMask(Password,{
+            mask: "*******************************"
+        });
+        const mask_login = new IMask(Login,{
+            mask: "*********************"
+        });
+        Login.addEventListener("input",LoginHandler,);
+        function LoginHandler(){
+            if (mask_login.masked.isComplete && mask_password.masked.isComplete) {
+        btn_login.classList.add("btn--active");
+    } else {
+        btn_login.classList.remove("btn--active");
+    }
+}
+
+btn_login.addEventListener("click", btn_loginHandler);
+function btn_loginHandler(e) {
+    e.preventDefault();
+    if (btn_login.classList.contains("active")) {
+        console.log('Email: ' + mask_login.value);
+        console.log('Password: ' + mask_password.value);
+    } else {
+        console.log('Ошибка');
+    }
+}
 </script>
 </body>
 </html>
