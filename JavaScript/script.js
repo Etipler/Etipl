@@ -6,8 +6,6 @@ const Register_menu = document.querySelector('.Register_menu');
 const Register_link = document.querySelector('.register_link');
 const icon_Register = document.querySelector('.icon_close1');
 const btnlogin = document.querySelector('.btn')
-const email = document.querySelector('.emaillogin')
-const email1 = document.querySelector('.email')
 
 LoginPopup.addEventListener('click', ()=> {
 Login_menu.classList.add('active-popup');
@@ -148,12 +146,20 @@ const changeHandler = e =>{
 const span_order = document.querySelector('.span_order');
 const button_footer = document.querySelector('.button_footer');
 const checkbox_footer = document.querySelector('.checkbox_footer')
+const checkbox1 = document.querySelector('.checkbox');
+const btn1 = document.querySelector('#btn')
 
-checkbox_footer.addEventListener('click', ()=>{
-button_footer.addEventListener('click', ()=> {
-    span_order.classList.add('span_order1');
+checkbox1.addEventListener('click', () => {
+    if (checkbox1.checked) {
+        btn1.classList.add('active');
+        btn1.classList.add('disabled-button');
+
+        btn1.classList.remove('disabled-button');
+    } else {
+        btn1.classList.remove('active');
+    }
 });
-});
+
 
                                         //TIME
 window.onload = function(){
@@ -163,14 +169,13 @@ window.onload = function(){
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
-        if (hours < 10) hours = "0" + hours;
+        if(hours < 10) hours = "0" + hours;
         if(minutes < 10) minutes = "0" + minutes;
         if(seconds < 10) seconds = "0" + seconds;
 
         var clock = hours + ":" + minutes + ":" + seconds;
         document.getElementById("clock").innerHTML = clock;
-    }
-    );
+    });
 }
 const time = document.querySelector('#clock')
 LoginPopup.addEventListener('click', ()=> {
@@ -279,7 +284,7 @@ entry.forEach(change =>{
 })
         }
          let options = {
-                threashold:[0.5]};
+                threashold:[0.1]};
             let observer= new IntersectionObserver(onEntry, options);
             let elements = document.querySelectorAll('.h1-catalog');
             let elements1 = document.querySelectorAll('.three_cards-first');
@@ -328,34 +333,71 @@ entry.forEach(change =>{
             }
 
 
-    const switchbtn = document.querySelector('.switch_left');
-    const switch_right = document.querySelector('.block_fifth');
-    const switch_left = document.querySelector('.block_fifth1');
-    const switchbtnright = document.querySelector('.switch_right')
-    switchbtn.addEventListener('click', ()=> {
-        switch_left.classList.add('slide_popup');
-        switch_right.classList.add('slide_popup');
-        switch_left.classList.remove('slide_popup_right');
-        switch_right.classList.remove('slide_popup_right');
-        return;
-        });
-    switchbtnright.addEventListener('click', ()=>{
-        switch_left.classList.add('slide_popup_right');
-        switch_right.classList.add('slide_popup_right');
-        switch_left.classList.remove('slide_popup');
-        switch_right.classList.remove('slide_popup');
-        return;
-    });
+    // const switchbtn = document.querySelector('.switch_left');
+    // const switch_right = document.querySelector('.block_fifth');
+    // const switch_left = document.querySelector('.block_fifth1');
+    // const switchbtnright = document.querySelector('.switch_right');
+    // const switch_left2 = document.querySelector('.block_fifth2');
+    // switchbtn.addEventListener('click', ()=> {
+    //     switch_left.classList.add('slide_popup');
+    //     switch_right.classList.add('slide_popup');
+    //     switch_left.classList.remove('slide_popup_right');
+    //     switch_right.classList.remove('slide_popup_right');
+    //     });
+    // switchbtnright.addEventListener('click', ()=>{
+    //     switch_left.classList.add('slide_popup_right');
+    //     switch_right.classList.add('slide_popup_right');
+    //     switch_left.classList.remove('slide_popup');
+    //     switch_right.classList.remove('slide_popup');
+    // });
+    let slides = document.getElementsByClassName('block_fifth'),
+        switchbtn = document.querySelector('.switch_left'),
+        switchbtnright = document.querySelector('.switch_right'),
+        slideIndex = 1;
+        showSlides(slideIndex);
+    function showSlides (n){
+        if(n < 1){
+            slideIndex = slides.length;
+        }else if(n > slides.length){
+            slideIndex = 1;
+        }
+            for(let i = 0; i < slides.length; i++){
+                slides[i].style.opacity = '0';
+                slides[i].style.transition = '0s';
+
+            }
+            slides[slideIndex - 1].style.opacity = '1';
+            slides[slideIndex - 1].style.transition = '5s';
+    }
+
+    function plusSlides (n){
+        showSlides(slideIndex += n);
+    }
+    switchbtn.onclick = function(){
+        plusSlides(-1);
+
+    }
+    switchbtnright.onclick = function() {
+        plusSlides(1);
+    }
 
 
-  
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        // Отображаем элемент с сообщением об ошибке
-        var errorMessage = document.getElementById('error-message');
-        var main = document.getElementById('main');
-        errorMessage.style.transform = 'scale(1)';
-        window.onload('', ()=> {
-            main.classList.add('active-popup-main');
-            });
 
-      }
+
+    // if (/Mobi|Android/i.test(navigator.userAgent)) {
+    //     // Отображаем элемент с сообщением об ошибке
+    //     var errorMessage = document.getElementById('error-message');
+    //     errorMessage.style.transform = 'scale(1)';
+    //     window.onload = function() {
+    //         var main = document.getElementById('main');
+    //         main.style.transform = 'scale(0)';
+
+    //         /Mobi|Android/i.test(navigator.userAgent) = true;
+    //       };
+
+    //   }else{
+    //     window.onload = function() {
+    //         main.style.transform = 'scale(1)';
+    //         return;
+    //       };
+    //   }
