@@ -89,12 +89,6 @@ transform: scale(0);
     animation-name: Login_Section;
     animation-duration: 3s;
 }
-.email{
-    font-size: 16px;
-}
-.email.emailpopup{
-    font-size: 0px;
-}
 @keyframes Login_Section{
     0%{
        transform: scale(0);
@@ -147,6 +141,7 @@ transform: scale(0);
 }
 .Login_menu.active-popup{  
     transform: scale(1);
+    transition: .5s;
 }
 .icon_close{
 position: absolute;
@@ -189,7 +184,7 @@ cursor: pointer;
 }
 .input-box input:focus~label,
 .input-box input:valid~label{
-    font-size: 0px;
+    top: -5px;
 }
 .input-box input{
      width: 100%;
@@ -226,17 +221,26 @@ cursor: pointer;
 .remember-forgot a:hover{
     text-decoration: underline;
 }
-.btn{
+#btn{
     width: 80%;
     height: 45px;
-    background: #162938;
+    background: #313b42;
     border: none;
     outline: none;
     border-radius: 6px;
-    cursor: pointer;
+    cursor: default;
     font-size: 1em;
-    color: #fff;
+    color: #292929;
     font-weight: 500;
+}
+.disabled-button {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+#btn.active{
+    background: #162938;
+    color: #fff;
+    cursor: pointer;
 }
 .login-register{
     font-size: .9em;
@@ -277,6 +281,7 @@ cursor: pointer;
 }
 .Register_menu.active-popup{  
     transform: scale(1);
+    transition: .5s;
 
 }
 .icon_close1{
@@ -508,7 +513,7 @@ background: #081130;
     top: 307px;
     
 }
-.clock {
+#clock {
     color: #ebd2d2;
     position: absolute;
     width: 24%;
@@ -1817,7 +1822,7 @@ opacity: 1;
     transform: scale(1);
 }
     @media screen and (max-width:1910px) {
-        .clock, #random, .btn_random{
+        #clock, #random, .btn_random{
             display: none; 
     }
 }
