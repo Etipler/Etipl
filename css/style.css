@@ -1163,11 +1163,11 @@ font-size: 20px;
     margin-right:-23px;
 }
 .photo_up_fifth{
-margin-top: 100px;
+ margin-top: -70px;
 width: 1920px;
 }
 .photo_down_fifth{
-    margin-top: 400px;
+    margin-top: 85px;
 }
 .text_fifth{
     position: relative;
@@ -1469,7 +1469,7 @@ width: 1920px;
     margin-left: 570px;
 }
 .button_switch{
-    margin-top: -268px;
+    margin-top: -235px;
     margin-left: 41%;
 }
 .image_women_fifth3{
@@ -1542,7 +1542,7 @@ background: #081130;
 }
 .img_footer{
     position: relative;
-    margin-top: -130px;
+    margin-top: 0px;
 }
 .block_footer{
     display: flex;
